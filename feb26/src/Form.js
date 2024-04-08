@@ -16,7 +16,7 @@ function Form({ onAddItem }) {
       id: Date.now(),
       quantity,
       name,
-      isChecked: false, // Set isChecked to false initially
+      isChecked: false,
     };
 
     onAddItem(newItem);

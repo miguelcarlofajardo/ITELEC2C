@@ -1,8 +1,7 @@
 function Header() {
   return (
     <div>
-      <h1>List</h1>
-      <h3>Grocery List</h3>
+      <h1>To Do app</h1>
     </div>
   );
 }

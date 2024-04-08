@@ -1,23 +1,24 @@
 import React, { useState } from "react";
 import Item from "./Item";
 
-function List({ items, onDeleteItem, onCheckItem, onEditItem }) {
+function List({ items, onDeleteItem, onCheckItem, onEditItem, setItems }) {
   const [filter, setFilter] = useState("notCompleted");
   const [sortMethod, setSortMethod] = useState("name");
   const [sortOrder, setSortOrder] = useState("asc");
 
+  const getCompletedItemCount = () => {
+    return items.filter((item) => item.isChecked).length;
+  };
+
   const handleSortChange = (method) => {
     if (sortMethod === method) {
-      // Toggle sorting order if the same method is selected
       setSortOrder(sortOrder === "asc" ? "desc" : "asc");
     } else {
-      // Set new sorting method and default sorting order to ascending
       setSortMethod(method);
       setSortOrder("asc");
     }
   };
 
-  // Sorting function by quantity
   const sortByQuantity = (a, b) => {
     if (sortOrder === "asc") {
       return a.quantity - b.quantity;
@@ -26,7 +27,6 @@ function List({ items, onDeleteItem, onCheckItem, onEditItem }) {
     }
   };
 
-  // Sorting function by name
   const sortByName = (a, b) => {
     if (sortOrder === "asc") {
       return a.name.localeCompare(b.name);
@@ -35,7 +35,6 @@ function List({ items, onDeleteItem, onCheckItem, onEditItem }) {
     }
   };
 
-  // Apply sorting based on the selected method
   const sortedItems = items
     .slice()
     .sort(sortMethod === "name" ? sortByName : sortByQuantity);
@@ -50,8 +49,23 @@ function List({ items, onDeleteItem, onCheckItem, onEditItem }) {
     } else if (filter === "notCompleted") {
       return !item.isChecked;
     }
-    return true; // Show all items
+    return true;
   });
+
+  const handleQuantityChange = (id, newQuantity) => {
+    if (newQuantity <= 0) {
+      alert("Please enter a positive number for quantity.");
+      return;
+    }
+
+    const updatedItems = items.map((item) => {
+      if (item.id === id) {
+        return { ...item, quantity: newQuantity };
+      }
+      return item;
+    });
+    setItems(updatedItems);
+  };
 
   return (
     <div>
@@ -84,10 +98,15 @@ function List({ items, onDeleteItem, onCheckItem, onEditItem }) {
             key={item.id}
             itemObj={item}
             deleteItem={onDeleteItem}
-            checkItem={() => onCheckItem(item.id)} // Pass the item id to checkItem
+            checkItem={() => onCheckItem(item.id)}
             editItem={onEditItem}
+            onQuantityChange={handleQuantityChange}
           />
         ))}
+      </div>
+
+      <div className="statistics">
+        <p>Completed Items: {getCompletedItemCount()}</p>
       </div>
     </div>
   );

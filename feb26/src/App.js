@@ -45,6 +45,7 @@ function App() {
         onDeleteItem={deleteItem}
         onCheckItem={checkItem}
         onEditItem={editItem}
+        setItems={setItems}
       />
     </div>
   );

@@ -1,4 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #71c497;
+  font-family: "Poppins", sans-serif;
+}
 
 .App {
   text-align: center;
@@ -24,31 +30,10 @@
     border-bottom: 4px solid #6afea0;
   }
   h3 {
-    font-family: "Poppins", sans-serif; /* Updated font-family */
+    font-family: "Poppins", sans-serif;
     font-size: 20px;
     color: #17688a;
   }
-}
-
-.selecto {
-  padding: 10px;
-  font-size: 16px;
-  font-family: "Poppins", sans-serif;
-  border: 3px solid #e96559;
-  border-radius: 5px;
-  background-color: #190934;
-  color: #e96559;
-  appearance: none;
-  margin-bottom: 10px;
-}
-
-.selecto:hover {
-  outline: none;
-  border-color: #fecf6a;
-}
-
-.selecto option:hover {
-  background-color: blanchedalmond;
 }
 
 .itemBtn {
@@ -60,24 +45,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.item-class {
-  margin: 0.25rem;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  background-color: white;
-  color: #6afea0;
-  border: 5px solid #6afea0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 20px;
-  h2 {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-  }
 }
 
 .itemChecked {
@@ -248,8 +215,30 @@ p {
   align-items: center;
 }
 
-.item-class {
-  font-size: 14px;
+.itemBtn {
+  width: 24px;
+  height: 24px;
+}
+
+.sortButton {
+  margin: 5px;
+  padding: 8px 16px;
+  background-color: #6afea0;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.sortButton:hover {
+  background-color: #4caf50;
+}
+
+.itemsDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .itemBtn {
@@ -261,7 +250,48 @@ p {
   margin: 5px;
   padding: 8px 16px;
   background-color: #6afea0;
-  color: #ffffff;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.sortButton:hover {
+  background-color: #4caf50;
+}
+
+.item-class {
+  margin: 0.25rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  background-color: transparent;
+  color: #6afea0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  font-size: 12px;
+  text-decoration: underline;
+  text-decoration-color: rgb(2, 102, 65);
+}
+
+.item-class h2 {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.itemBtn {
+  width: 24px;
+  height: 24px;
+}
+
+.sortButton {
+  margin: 5px;
+  padding: 8px 16px;
+  background-color: #6afea0;
+  color: black;
   border: none;
   border-radius: 5px;
   cursor: pointer;

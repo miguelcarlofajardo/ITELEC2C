@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 
-function Item({ itemObj, deleteItem, checkItem, editItem }) {
+function Item({ itemObj, deleteItem, checkItem, editItem, onQuantityChange }) {
   const [isEditing, setIsEditing] = useState(false);
   const [editedItem, setEditedItem] = useState(itemObj.name);
+  const [editedQuantity, setEditedQuantity] = useState(itemObj.quantity);
 
   const handleEdit = () => {
     setIsEditing(true);
@@ -17,11 +18,24 @@ function Item({ itemObj, deleteItem, checkItem, editItem }) {
     setEditedItem(e.target.value);
   };
 
+  const handleQuantityChange = (e) => {
+    const newQuantity = parseInt(e.target.value);
+    if (!isNaN(newQuantity)) {
+      setEditedQuantity(newQuantity);
+      onQuantityChange(itemObj.id, newQuantity);
+    }
+  };
+
   return (
     <div className="item-class">
       {isEditing ? (
         <>
           <input type="text" value={editedItem} onChange={handleChange} />
+          <input
+            type="number"
+            value={editedQuantity}
+            onChange={handleQuantityChange}
+          />
           <button onClick={handleSave}>Save</button>
         </>
       ) : (
@@ -53,7 +67,7 @@ function Item({ itemObj, deleteItem, checkItem, editItem }) {
         className="itemBtn"
         src="https://static-00.iconduck.com/assets.00/checkmark-icon-512x426-8re0u9li.png"
         alt="Check"
-        onClick={() => checkItem(itemObj.id)} // Ensure only ID is passed here
+        onClick={() => checkItem(itemObj.id)}
       />
     </div>
   );
