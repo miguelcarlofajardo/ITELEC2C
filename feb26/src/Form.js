@@ -1,22 +1,37 @@
 import { useState } from "react";
+
 function Form({ onAddItem }) {
-  const [name, setName] = useState("");
   const [quantity, setQuantity] = useState(1);
-  function handleSubmit(e) {
+  const [name, setName] = useState("");
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    if (!name) return;
-    const newItem = { name, quantity, isChecked: false, id: Date.now() };
-    setName("");
-    setQuantity(1);
-    console.log(newItem);
+
+    if (!name.trim()) {
+      alert("Please enter a task.");
+      return;
+    }
+
+    const newItem = {
+      id: Date.now(),
+      quantity,
+      name,
+      isChecked: false, // Set isChecked to false initially
+    };
+
     onAddItem(newItem);
-  }
+
+    setQuantity(1);
+    setName("");
+  };
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
         <select
           value={quantity}
           onChange={(e) => setQuantity(Number(e.target.value))}
+          className="dropdown"
         >
           {Array.from({ length: 20 }, (_, i) => i + 1).map((num) => (
             <option value={num} key={num}>
@@ -30,11 +45,13 @@ function Form({ onAddItem }) {
           name="tasks"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          placeholder="Add a task."
-        ></input>
-        <button>I Got This!</button>
+          placeholder="What to do?"
+          className="taskInput"
+        />
+        <button className="addButton">Add</button>
       </form>
     </div>
   );
 }
+
 export default Form;

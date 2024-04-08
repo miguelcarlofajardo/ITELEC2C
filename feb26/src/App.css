@@ -1,27 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
+
 .App {
   text-align: center;
-  background-color: white;
-  width: 100vw;
-  height: 100vh;
+  background-color: #71c497;
+  width: auto;
+  height: auto;
   display: flex;
   flex-direction: column;
+  font-family: "Poppins", sans-serif;
 }
 
 .header {
   justify-content: center;
   background-color: #190934;
-  color: #fecf6a;
+  color: #6afea0;
   text-transform: uppercase;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-family: "Poppins", sans-serif;
   display: flex;
 
   h1 {
     letter-spacing: 1px;
     font-size: 50px;
-    border-bottom: 4px solid #fecf6a;
+    border-bottom: 4px solid #6afea0;
   }
   h3 {
-    font-family: "Arial Narrow";
+    font-family: "Poppins", sans-serif; /* Updated font-family */
     font-size: 20px;
     color: #17688a;
   }
@@ -30,7 +33,7 @@
 .selecto {
   padding: 10px;
   font-size: 16px;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-family: "Poppins", sans-serif;
   border: 3px solid #e96559;
   border-radius: 5px;
   background-color: #190934;
@@ -55,25 +58,25 @@
 
 .itemsDiv {
   display: flex;
-  flex-wrap: wrap;
-  align-content: center;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
-.itemItem {
-  margin: 20px 10px 20px 10px;
-  background-color: #190934;
-  color: #fecf6a;
-  border: 3px solid #fecf6a;
-  padding: 0 10px 0 10px;
+.item-class {
+  margin: 0.25rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  background-color: white;
+  color: #6afea0;
+  border: 5px solid #6afea0;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 300px;
   border-radius: 20px;
   h2 {
     display: flex;
     justify-content: space-between;
+    width: 100%;
   }
 }
 
@@ -95,7 +98,7 @@
 }
 
 h3:hover {
-  color: #e96559;
+  color: #6afea0;
 }
 .btnDiv {
   display: flex;
@@ -112,7 +115,7 @@ h3:hover {
 .selectNum {
   padding: 2px;
   font-size: 16px;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-family: "Poppins", sans-serif;
   background-color: #fecf6a;
   color: #17688a;
   border: 3px solid #fecf6a;
@@ -121,12 +124,12 @@ h3:hover {
 }
 
 #tasks {
-  background-color: #17688a;
-  color: #fecf6a;
+  background-color: white;
+  color: black;
   outline: none;
   font-size: medium;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  border: none;
+  font-family: "Poppins", sans-serif;
+  border-color: black;
   padding: 2px 2px 2px 8px;
   margin: 10px 10px 0px 10px;
 }
@@ -151,7 +154,7 @@ h3:hover {
 .formBtn {
   border: none;
   font-size: medium;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-family: "Poppins", sans-serif;
   background-color: #fecf6a;
   color: #17688a;
   padding: 2px 8px 2px 8px;
@@ -167,7 +170,7 @@ h3:hover {
 .clearBtn {
   padding: 10px;
   font-size: 16px;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-family: "Poppins", sans-serif;
   border: 3px solid #17688a;
   border-radius: 5px;
   background-color: #190934;
@@ -185,10 +188,10 @@ h3:hover {
   background-color: #190934;
   bottom: 0;
   margin-top: auto;
-  text-align: center; /* Align text to the center */
-  padding: 4px 0; /* Add padding for better spacing */
+  text-align: center;
+  padding: 4px 0;
   font-size: medium;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .perc {
@@ -199,4 +202,72 @@ h3:hover {
 p {
   color: #17688a;
   font-size: 18px;
+}
+
+.addButton {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.addButton:hover {
+  background-color: #6afea0;
+}
+
+.dropdown-container {
+  margin-bottom: 10px;
+}
+
+.dropdown {
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+  outline: none;
+}
+
+.dropdown:hover {
+  border-color: #888;
+}
+
+.itemsDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.item-class {
+  font-size: 14px;
+}
+
+.itemBtn {
+  width: 24px;
+  height: 24px;
+}
+
+.sortButton {
+  margin: 5px;
+  padding: 8px 16px;
+  background-color: #6afea0;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.sortButton:hover {
+  background-color: #4caf50;
 }
