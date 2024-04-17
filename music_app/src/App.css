@@ -1,0 +1,88 @@
+@import url("https://fonts.cdnfonts.com/css/helvetica-neue-55");
+
+body {
+  font-family: "Helvetica Neue", sans-serif;
+  background-color: #f8f8f8;
+  margin: 0;
+  padding: 0;
+}
+.navbar-container {
+  display: flex;
+  justify-content: space-around;
+  background-color: black;
+  color: white;
+}
+
+.search {
+  border-style: double;
+  border-color: black;
+  border-width: 4px;
+  height: 30px;
+  width: auto;
+  margin-top: 17px;
+  font-family: "Helvetica Neue", sans-serif;
+}
+
+#sort {
+  font-family: "Helvetica Neue", sans-serif;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px;
+  background-color: black;
+}
+
+.container > div {
+  flex: 1;
+  padding: 20px;
+  background-color: #fff;
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  padding: 10px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  background-color: transparent;
+  color: black;
+  cursor: pointer;
+  height: 50px;
+  border-radius: 25px;
+}
+
+button:hover {
+  background-color: black;
+  color: white;
+}
+
+.item:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.item:nth-child(odd) {
+  background-color: #fff;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .container > div {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
